@@ -3,141 +3,84 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#07111f">
-<title>Juegos Camper — Open Source</title>
+<meta name="theme-color" content="#06111e">
+<title>Juegos Camper — iPhone</title>
 <style>
-:root{
-  --bg:#06101e;--bg2:#0a1830;--panel:#102542;--panel2:#0a1b31;
-  --text:#f7fbff;--muted:#a9c0df;--line:rgba(121,174,255,.23);
-  --blue:#55b8ff;--green:#64dfb3;--yellow:#ffd166;--pink:#ff7aa2;
-}
-*{box-sizing:border-box}
-html,body{margin:0;background:
-  radial-gradient(circle at 15% -5%,rgba(85,184,255,.25),transparent 28%),
-  radial-gradient(circle at 92% 0%,rgba(100,223,179,.13),transparent 25%),
-  linear-gradient(180deg,var(--bg2),var(--bg));
-  color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100%}
-body{min-height:100vh}
-main{width:min(980px,100%);margin:auto;padding:22px 16px 46px}
-.hero{padding:8px 2px 20px}
-.kicker{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:#8ed9ff}
-h1{font-size:clamp(29px,7vw,48px);line-height:1;margin:7px 0 10px}
-.hero p{margin:0;max-width:660px;color:var(--muted);line-height:1.45}
-.notice{margin:14px 0 18px;padding:12px 14px;border:1px solid var(--line);border-radius:16px;background:rgba(7,18,34,.65);color:var(--muted);font-size:14px}
+:root{--bg:#06111e;--bg2:#0b1c34;--card:#102a4a;--line:rgba(133,186,255,.23);--text:#f7fbff;--muted:#aac4e7;--blue:#55b8ff;--green:#64dfb3;--pink:#ff6f9c;--yellow:#ffd166}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:radial-gradient(circle at 15% 0,rgba(85,184,255,.22),transparent 28%),linear-gradient(180deg,var(--bg2),var(--bg));color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+main{width:min(920px,100%);margin:auto;padding:20px 14px 50px}
+.kicker{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:#8ed9ff;font-weight:800}
+h1{font-size:clamp(28px,7vw,46px);line-height:1;margin:7px 0 10px}
+.hero p{margin:0;color:var(--muted);line-height:1.45;max-width:720px}
+.notice{margin:16px 0 18px;padding:13px 14px;border-radius:16px;border:1px solid var(--line);background:rgba(6,17,30,.67);color:var(--muted);font-size:14px}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.card{position:relative;overflow:hidden;min-height:265px;border:1px solid var(--line);border-radius:25px;
-  background:linear-gradient(160deg,rgba(19,47,83,.96),rgba(7,20,38,.98));box-shadow:0 20px 45px rgba(0,0,0,.28)}
-.card::before{content:"";position:absolute;inset:0;background:
-  radial-gradient(circle at 78% 13%,rgba(255,255,255,.10),transparent 26%);pointer-events:none}
-.visual{height:112px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.visual .emoji{font-size:62px;filter:drop-shadow(0 12px 12px rgba(0,0,0,.28));transform:translateY(2px)}
-.c4 .visual{background:linear-gradient(135deg,#1555a8,#0c2c67)}
-.hextris .visual{background:conic-gradient(from 30deg,#ff7aa2,#ffd166,#64dfb3,#55b8ff,#a987ff,#ff7aa2)}
-.onebtn .visual{background:linear-gradient(135deg,#27136d,#7934d1 60%,#c34cff)}
-.bird .visual{background:linear-gradient(180deg,#69c9ff,#d7f1ff)}
-.chess .visual{background:linear-gradient(135deg,#6a4e3c,#d0aa7e)}
-.hexgl .visual{background:linear-gradient(135deg,#07141f,#0b4e6a 55%,#16a4bb)}
-.card-body{padding:15px 16px 16px;position:relative}
-.title-row{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
-.card h2{font-size:20px;margin:0}
-.badge{font-size:11px;font-weight:800;padding:6px 8px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid var(--line);white-space:nowrap}
-.badge.mobile{color:#bfffe6}.badge.test{color:#ffe6a6}
-.card p{color:var(--muted);font-size:14px;line-height:1.4;min-height:59px;margin:9px 0 13px}
-.actions{display:flex;gap:8px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border-radius:14px;padding:11px 14px;min-height:44px;font-weight:800;border:1px solid var(--line)}
-.play{background:linear-gradient(180deg,#48adff,#2175d1);color:white;flex:1}
-.src{background:rgba(255,255,255,.06);color:#d7e8ff}
-.footer{margin-top:22px;padding:16px;border-top:1px solid var(--line);color:var(--muted);font-size:13px;line-height:1.5}
+.card{overflow:hidden;border:1px solid var(--line);border-radius:24px;background:linear-gradient(160deg,rgba(21,52,90,.96),rgba(8,21,39,.98));box-shadow:0 20px 45px rgba(0,0,0,.3)}
+.visual{height:120px;display:flex;align-items:center;justify-content:center;font-size:64px;text-shadow:0 12px 24px rgba(0,0,0,.35)}
+.racer .visual{background:linear-gradient(180deg,#25124f,#d73f87)}
+.shooter .visual{background:linear-gradient(180deg,#170b22,#8b1515)}
+.runner .visual{background:linear-gradient(135deg,#2a0d4d,#ff006e)}
+.pulse .visual{background:linear-gradient(135deg,#1a0f2e,#00a878)}
+.arcade .visual{background:linear-gradient(135deg,#140027,#17632d)}
+.snake .visual{background:linear-gradient(135deg,#0a3520,#3ac972)}
+.body{padding:15px 16px 16px}.top{display:flex;justify-content:space-between;gap:9px;align-items:flex-start}.card h2{font-size:20px;margin:0}.badge{white-space:nowrap;font-size:11px;font-weight:800;padding:6px 8px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.07);color:#caffea}
+.card p{margin:9px 0 11px;color:var(--muted);font-size:14px;line-height:1.4;min-height:58px}
+.control{display:block;padding:10px 12px;margin:0 0 12px;border-radius:13px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.07);font-size:13px;color:#e9f3ff}
+.play{display:flex;justify-content:center;align-items:center;text-decoration:none;color:#fff;font-weight:850;min-height:48px;border-radius:15px;background:linear-gradient(180deg,#49afff,#2174d0);box-shadow:0 10px 22px rgba(33,116,208,.25)}
+.footer{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;line-height:1.5;color:var(--muted)}
 .footer strong{color:#fff}
-@media(max-width:690px){.grid{grid-template-columns:1fr}.card{min-height:245px}.hero{padding-top:2px}}
+@media(max-width:680px){.grid{grid-template-columns:1fr}.card p{min-height:0}}
 </style>
 </head>
 <body>
 <main>
 <section class="hero">
-  <div class="kicker">Camper Los Toyos · laboratorio</div>
-  <h1>🎮 Juegos open source</h1>
-  <p>He retirado los prototipos anteriores. Esta pantalla sirve para probar juegos completos y visualmente más trabajados antes de decidir cuáles adaptamos e integramos de verdad en Camper Los Toyos.</p>
+<div class="kicker">Camper Los Toyos · laboratorio táctil</div>
+<h1>🎮 Juegos para iPhone</h1>
+<p>He quitado los enlaces externos que daban problemas. Estos juegos están alojados ahora dentro de nuestro propio GitHub Pages y he seleccionado únicamente versiones con control táctil explícito.</p>
 </section>
 
-<div class="notice"><strong style="color:#fff">Importante:</strong> en esta fase los juegos se abren desde sus demos originales. Así podemos probarlos en el iPhone sin copiar todavía cientos de archivos. Los que apruebes los pasaremos después a nuestro repositorio para adaptarlos y preparar funcionamiento offline.</div>
+<div class="notice"><strong style="color:#fff">Cómo probar:</strong> entra en un juego y usa directamente los controles que indico debajo. Todos incluyen un botón flotante <b>‹ Juegos Camper</b> para volver a esta pantalla.</div>
 
 <section class="grid">
-  <article class="card c4">
-    <div class="visual"><div class="emoji">🔴🟡</div></div>
-    <div class="card-body">
-      <div class="title-row"><h2>Cuatro en raya</h2><span class="badge mobile">iPhone ✓</span></div>
-      <p>Versión completa con IA Minimax, jugador contra jugador, espectador IA vs IA y modo online. Compatible con Safari moderno.</p>
-      <div class="actions">
-        <a class="btn play" href="https://kenrick95.github.io/c4/" target="_blank" rel="noopener">Jugar ahora</a>
-        <a class="btn src" href="https://github.com/kenrick95/c4" target="_blank" rel="noopener">Código · MIT</a>
-      </div>
-    </div>
-  </article>
+<article class="card racer">
+<div class="visual">🏎️</div><div class="body"><div class="top"><h2>Pixel Racer</h2><span class="badge">Táctil ✓</span></div>
+<p>Carreras verticales estilo pixel-art con tráfico, puntuación y dificultad progresiva.</p>
+<span class="control"><b>Control:</b> toca la mitad izquierda o derecha de la pantalla para girar. Toca para empezar/reiniciar.</span>
+<a class="play" href="games/pixel-racer/">Jugar</a></div></article>
 
-  <article class="card hextris">
-    <div class="visual"><div class="emoji">⬡</div></div>
-    <div class="card-body">
-      <div class="title-row"><h2>Hextris</h2><span class="badge mobile">Táctil</span></div>
-      <p>Puzzle arcade muy pulido inspirado en Tetris, con animaciones, puntuación y una presentación mucho más cercana a un juego comercial.</p>
-      <div class="actions">
-        <a class="btn play" href="https://hextris.io/" target="_blank" rel="noopener">Jugar ahora</a>
-        <a class="btn src" href="https://github.com/Hextris/hextris" target="_blank" rel="noopener">Código · GPLv3</a>
-      </div>
-    </div>
-  </article>
+<article class="card shooter">
+<div class="visual">👾</div><div class="body"><div class="top"><h2>Arcade Fever</h2><span class="badge">Botones táctiles ✓</span></div>
+<p>Arcade de acción con controles móviles añadidos por el juego y botón de disparo independiente.</p>
+<span class="control"><b>Control:</b> cruceta táctil en pantalla + botón de disparo.</span>
+<a class="play" href="games/arcade-fever/">Jugar</a></div></article>
 
-  <article class="card onebtn">
-    <div class="visual"><div class="emoji">🕹️</div></div>
-    <div class="card-body">
-      <div class="title-row"><h2>111 minijuegos</h2><span class="badge mobile">Móvil ✓</span></div>
-      <p>Una colección enorme de juegos de un solo botón diseñados para navegador y móvil. Muy apropiados para partidas rápidas en la camper.</p>
-      <div class="actions">
-        <a class="btn play" href="https://abagames.github.io/crisp-game-lib-games/" target="_blank" rel="noopener">Jugar ahora</a>
-        <a class="btn src" href="https://github.com/abagames/111-one-button-games-in-2021" target="_blank" rel="noopener">Código · MIT</a>
-      </div>
-    </div>
-  </article>
+<article class="card runner">
+<div class="visual">🌈</div><div class="body"><div class="top"><h2>Spectrum Runner</h2><span class="badge">1 toque ✓</span></div>
+<p>Runner neón de reacción rápida, diseñado para jugar con un único gesto.</p>
+<span class="control"><b>Control:</b> toca la pantalla para saltar.</span>
+<a class="play" href="games/spectrum-runner/">Jugar</a></div></article>
 
-  <article class="card bird">
-    <div class="visual"><div class="emoji">🐦</div></div>
-    <div class="card-body">
-      <div class="title-row"><h2>Clumsy Bird</h2><span class="badge mobile">Arcade</span></div>
-      <p>Juego arcade completo estilo Flappy Bird construido con MelonJS. Gráficos, físicas, puntuación y controles sencillos para móvil.</p>
-      <div class="actions">
-        <a class="btn play" href="https://ellisonleao.github.io/clumsy-bird/" target="_blank" rel="noopener">Jugar ahora</a>
-        <a class="btn src" href="https://github.com/ellisonleao/clumsy-bird" target="_blank" rel="noopener">Código · GPLv3</a>
-      </div>
-    </div>
-  </article>
+<article class="card pulse">
+<div class="visual">💚</div><div class="body"><div class="top"><h2>Pulse Beat</h2><span class="badge">Táctil ✓</span></div>
+<p>Juego de ritmo/reacción con estética neón. El propio lienzo responde a pulsaciones.</p>
+<span class="control"><b>Control:</b> toca directamente los objetivos que aparecen en la pantalla.</span>
+<a class="play" href="games/pulse-beat/">Jugar</a></div></article>
 
-  <article class="card chess">
-    <div class="visual"><div class="emoji">♞</div></div>
-    <div class="card-body">
-      <div class="title-row"><h2>Ajedrez 3D</h2><span class="badge test">Probar táctil</span></div>
-      <p>Tablero y piezas renderizadas en 3D mediante HTML, CSS y JavaScript. Especialmente interesante para valorar una interfaz más espectacular.</p>
-      <div class="actions">
-        <a class="btn play" href="https://codepen.io/juliangarnier/full/kxGRvV" target="_blank" rel="noopener">Jugar ahora</a>
-        <a class="btn src" href="https://github.com/juliangarnier/3D-Hartwig-chess-set" target="_blank" rel="noopener">Código · permisiva</a>
-      </div>
-    </div>
-  </article>
+<article class="card arcade">
+<div class="visual">🕹️</div><div class="body"><div class="top"><h2>Arcade Classic</h2><span class="badge">Botones táctiles ✓</span></div>
+<p>Arcade clásico con interfaz retro y controles móviles visibles.</p>
+<span class="control"><b>Control:</b> cruceta táctil + botón de acción/disparo.</span>
+<a class="play" href="games/arcade-classic/">Jugar</a></div></article>
 
-  <article class="card hexgl">
-    <div class="visual"><div class="emoji">🏎️</div></div>
-    <div class="card-body">
-      <div class="title-row"><h2>HexGL</h2><span class="badge test">3D · probar</span></div>
-      <p>Carreras futuristas 3D con WebGL. Es el más exigente de la selección y sirve para comprobar hasta dónde podemos llegar gráficamente.</p>
-      <div class="actions">
-        <a class="btn play" href="https://hexgl.bkcore.com/" target="_blank" rel="noopener">Jugar ahora</a>
-        <a class="btn src" href="https://github.com/BKcore/HexGL" target="_blank" rel="noopener">Código · MIT</a>
-      </div>
-    </div>
-  </article>
+<article class="card snake">
+<div class="visual">🐍</div><div class="body"><div class="top"><h2>Snake Mobile</h2><span class="badge">D-pad ✓</span></div>
+<p>Versión orientada a móvil con gráficos incrustados y botones direccionales en pantalla.</p>
+<span class="control"><b>Control:</b> botones ▲ ▼ ◀ ▶ visibles en el propio juego.</span>
+<a class="play" href="games/snake-mobile/">Jugar</a></div></article>
 </section>
 
 <div class="footer">
-  <strong>Selección de prueba.</strong> Los prototipos anteriores de Batalla Naval, Snake, Buscaminas, 2048 y Cuatro en raya casero ya no forman parte de este laboratorio. Las licencias indicadas corresponden a los proyectos originales y se volverán a revisar antes de copiar o modificar cualquier juego dentro de Camper Los Toyos.
+<strong>Licencias conservadas:</strong> Pixel Racer y los juegos derivados de 90s-games están bajo MIT; Classic Snake está bajo GPL-3.0. Las copias de las licencias están guardadas en la carpeta <code>licenses/</code> del repositorio.
 </div>
 </main>
 </body>
