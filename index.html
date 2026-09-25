@@ -3,127 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#050816">
-<title>Juegos Camper — selección moderna</title>
+<meta name="theme-color" content="#040714">
+<title>Juegos Camper — 3D</title>
 <style>
-:root{
-  --bg:#050816;--bg2:#0a1024;--panel:#0e1830;--panel2:#101e3b;
-  --text:#f7fbff;--muted:#a9b8d7;--line:rgba(150,190,255,.17);
-  --cyan:#55ddff;--violet:#8b5cf6;--pink:#ff4f9a;--green:#62e6a6;--yellow:#ffd166;
-}
-*{box-sizing:border-box}
-html,body{margin:0;min-height:100%;background:
-radial-gradient(circle at 16% -5%,rgba(85,221,255,.18),transparent 25%),
-radial-gradient(circle at 88% 0%,rgba(139,92,246,.22),transparent 27%),
-linear-gradient(180deg,var(--bg2),var(--bg));color:var(--text);
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-body{min-height:100vh}
-main{width:min(980px,100%);margin:auto;padding:22px 15px 52px}
-.hero{padding:4px 2px 20px}
-.kicker{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:900;color:#8de7ff}
-h1{font-size:clamp(30px,7vw,50px);line-height:.98;margin:8px 0 12px}
-.hero p{max-width:720px;color:var(--muted);line-height:1.5;margin:0}
-.notice{margin:15px 0 19px;padding:13px 14px;border-radius:17px;border:1px solid var(--line);background:rgba(8,16,34,.72);color:var(--muted);font-size:14px;line-height:1.45}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.card{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:26px;
-background:linear-gradient(160deg,rgba(18,36,70,.98),rgba(7,16,32,.98));
-box-shadow:0 22px 52px rgba(0,0,0,.34)}
-.visual{height:150px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.visual::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 22%,rgba(255,255,255,.18),transparent 32%)}
-.icon{position:relative;z-index:1;font-size:74px;filter:drop-shadow(0 15px 18px rgba(0,0,0,.4))}
-.vitalis .visual{background:linear-gradient(135deg,#071520,#103d35 52%,#1a7257)}
-.star .visual{background:radial-gradient(circle at 70% 35%,#8d2df3 0 3%,transparent 4%),linear-gradient(135deg,#07031b,#151050 56%,#47166c)}
-.neon .visual{background:linear-gradient(180deg,#140526 0 60%,#2b0d4f 61%);border-bottom:1px solid rgba(255,79,154,.4)}
-.treads .visual{background:linear-gradient(180deg,#08101a,#182638 60%,#473e27)}
-.slaps .visual{background:linear-gradient(135deg,#271136,#7d214d 54%,#dd5b6e)}
-.drop .visual{background:linear-gradient(135deg,#101934,#223775 56%,#ffb24b)}
-.body{padding:16px}
-.top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
-.card h2{font-size:21px;margin:0}
-.badge{font-size:11px;font-weight:900;padding:6px 9px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.07);white-space:nowrap;color:#d9e7ff}
-.badge.two{color:#ffe8ad}.badge.mobile{color:#c9ffe4}
-.card p{color:var(--muted);font-size:14px;line-height:1.45;margin:9px 0 12px}
-.meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:13px}
-.meta span{font-size:12px;padding:7px 9px;border-radius:999px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.06);color:#dbe8fb}
-.play{display:flex;align-items:center;justify-content:center;min-height:50px;border-radius:16px;text-decoration:none;color:white;font-weight:900;background:linear-gradient(180deg,#43c7ff,#3478df);box-shadow:0 12px 25px rgba(52,120,223,.24)}
-.play.pink{background:linear-gradient(180deg,#ff6cad,#cf3a85)} .play.green{background:linear-gradient(180deg,#56dca4,#218c66)}
-.footer{margin-top:21px;padding:15px 2px 0;border-top:1px solid var(--line);font-size:13px;color:var(--muted);line-height:1.5}
-@media(max-width:700px){.grid{grid-template-columns:1fr}.visual{height:135px}}
+:root{--bg:#040714;--panel:#0a1228;--text:#f7fbff;--muted:#aab9d7;--line:rgba(143,194,255,.2)}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:radial-gradient(circle at 18% 0,rgba(28,214,255,.18),transparent 27%),radial-gradient(circle at 87% 0,rgba(151,65,255,.21),transparent 28%),linear-gradient(180deg,#0b1127,var(--bg));color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+main{width:min(920px,100%);margin:auto;padding:22px 15px 50px}.k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8eeaff;font-weight:900}h1{font-size:clamp(31px,8vw,52px);line-height:1;margin:8px 0 11px}.lead{margin:0 0 20px;color:var(--muted);line-height:1.45}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.card{overflow:hidden;border:1px solid var(--line);border-radius:28px;background:linear-gradient(160deg,rgba(17,33,67,.98),rgba(6,14,31,.98));box-shadow:0 24px 55px rgba(0,0,0,.35)}.art{height:210px;display:flex;align-items:center;justify-content:center;font-size:92px;position:relative}.space .art{background:radial-gradient(circle at 70% 30%,#7828ff 0 2%,transparent 3%),radial-gradient(circle at 32% 28%,#00d7ff 0 1.6%,transparent 2.4%),linear-gradient(135deg,#020518,#10135c 55%,#3a105d)}.race .art{background:linear-gradient(180deg,#4fbef2 0 48%,#4b8a3e 49% 58%,#30323a 59% 100%)}.body{padding:17px}.head{display:flex;justify-content:space-between;gap:8px}.body h2{font-size:22px;margin:0}.badge{font-size:11px;font-weight:900;padding:6px 9px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.07);white-space:nowrap}.body p{color:var(--muted);font-size:14px;line-height:1.45;margin:10px 0 13px}.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}.chips span{font-size:12px;padding:7px 9px;border-radius:999px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.06)}.play{display:flex;align-items:center;justify-content:center;min-height:52px;border-radius:16px;text-decoration:none;color:#fff;font-weight:900;background:linear-gradient(180deg,#47cdfc,#3476df)}.race .play{background:linear-gradient(180deg,#5ed779,#25874a)}.foot{margin-top:20px;color:var(--muted);font-size:13px;line-height:1.45;border-top:1px solid var(--line);padding-top:15px}@media(max-width:700px){.grid{grid-template-columns:1fr}.art{height:175px}}
 </style>
 </head>
-<body>
-<main>
-<section class="hero">
-  <div class="kicker">Camper Los Toyos · laboratorio</div>
-  <h1>🎮 Selección moderna</h1>
-  <p>He retirado los juegos retro anteriores. Esta versión se centra en títulos pensados para móvil, con controles táctiles y una presentación más actual.</p>
-</section>
-
-<div class="notice"><strong style="color:#fff">Fase de prueba:</strong> estos juegos se abren en su versión original publicada por sus autores. Si alguno te convence de verdad, el siguiente paso será traer ese proyecto al repositorio de Camper y adaptarlo a nuestra interfaz, idioma y modo offline.</div>
-
-<section class="grid">
-  <article class="card vitalis">
-    <div class="visual"><div class="icon">⚔️</div></div>
-    <div class="body">
-      <div class="top"><h2>Vitalis Arena</h2><span class="badge mobile">Móvil</span></div>
-      <p>Supervivencia tipo roguelike con personajes, equipo, jefes, progresión y una interfaz mucho más cercana a un juego móvil actual.</p>
-      <div class="meta"><span>Joystick virtual</span><span>Disparo</span><span>Habilidad especial</span><span>PWA</span></div>
-      <a class="play green" href="https://ericcancode.github.io/vitalis-arena/" target="_blank" rel="noopener">Jugar</a>
-    </div>
-  </article>
-
-  <article class="card star">
-    <div class="visual"><div class="icon">🚀</div></div>
-    <div class="body">
-      <div class="top"><h2>Star Void</h2><span class="badge mobile">Vertical</span></div>
-      <p>Shooter espacial vertical con estética neón, movimiento táctil y una presentación mucho más moderna que los arcades que probamos antes.</p>
-      <div class="meta"><span>1 jugador</span><span>Retrato</span><span>Acción</span></div>
-      <a class="play" href="https://200lire.pages.dev/#/play/star-void" target="_blank" rel="noopener">Jugar</a>
-    </div>
-  </article>
-
-  <article class="card neon">
-    <div class="visual"><div class="icon">🌆</div></div>
-    <div class="body">
-      <div class="top"><h2>Neon Dash</h2><span class="badge mobile">Vertical</span></div>
-      <p>Runner con estética synthwave y controles simples para móvil. Está pensado para partidas rápidas con una presentación actual.</p>
-      <div class="meta"><span>Correr</span><span>Saltar</span><span>Deslizar</span></div>
-      <a class="play pink" href="https://200lire.pages.dev/#/play/neon-dash" target="_blank" rel="noopener">Jugar</a>
-    </div>
-  </article>
-
-  <article class="card treads">
-    <div class="visual"><div class="icon">🛡️</div></div>
-    <div class="body">
-      <div class="top"><h2>Night Treads</h2><span class="badge mobile">Móvil</span></div>
-      <p>Combate de tanque contra zombis, de noche, con interfaz y efectos más próximos a un juego casual actual.</p>
-      <div class="meta"><span>Tanque</span><span>Zombis</span><span>Acción</span></div>
-      <a class="play" href="https://200lire.pages.dev/#/play/night-treads" target="_blank" rel="noopener">Jugar</a>
-    </div>
-  </article>
-
-  <article class="card slaps">
-    <div class="visual"><div class="icon">🃏</div></div>
-    <div class="body">
-      <div class="top"><h2>Slaps</h2><span class="badge two">2 jugadores</span></div>
-      <p>Juego de cartas diseñado expresamente para dos personas alrededor del mismo móvil, con pantalla invertida para cada jugador, sonido y vibración.</p>
-      <div class="meta"><span>Mismo iPhone</span><span>2 jugadores</span><span>Haptics</span></div>
-      <a class="play pink" href="https://wsamuelw.github.io/slaps/" target="_blank" rel="noopener">Jugar</a>
-    </div>
-  </article>
-
-  <article class="card drop">
-    <div class="visual"><div class="icon">🟠</div></div>
-    <div class="body">
-      <div class="top"><h2>Drop Stack</h2><span class="badge mobile">Táctil</span></div>
-      <p>Puzzle físico de soltar y fusionar piezas, pensado para pantalla vertical y partidas tranquilas en el móvil.</p>
-      <div class="meta"><span>Puzzle</span><span>Física</span><span>Vertical</span></div>
-      <a class="play" href="https://200lire.pages.dev/#/play/drop-stack" target="_blank" rel="noopener">Jugar</a>
-    </div>
-  </article>
-</section>
-
-<div class="footer">Los prototipos y juegos retro anteriores se han retirado del repositorio. Esta pantalla queda únicamente como banco de pruebas para decidir qué juegos merece la pena integrar de verdad en Camper Los Toyos.</div>
-</main>
-</body>
-</html>
+<body><main>
+  <div class="k">Camper Los Toyos · laboratorio 3D</div>
+  <h1>🎮 Juegos con más nivel gráfico</h1>
+  <p class="lead">He eliminado el resto. El laboratorio queda únicamente con dos juegos 3D completos, alojados dentro de nuestro propio GitHub Pages y con controles táctiles para móvil.</p>
+  <section class="grid">
+    <article class="card space"><div class="art">🚀</div><div class="body"><div class="head"><h2>Neon Space Defender 3D</h2><span class="badge">3D · WebGL</span></div><p>Shooter espacial 3D con iluminación neón, oleadas, jefes, partículas, láseres, misiles, escudo, energía y efectos de cámara.</p><div class="chips"><span>Joystick táctil</span><span>Disparo</span><span>Misiles</span><span>Jefes</span></div><a class="play" href="games/neon-space-defender/">Jugar</a></div></article>
+    <article class="card race"><div class="art">🏎️</div><div class="body"><div class="head"><h2>GenerateRacer</h2><span class="badge">Carreras</span></div><p>Carreras de kart contra cinco rivales con IA, tres vueltas, posiciones en tiempo real, controles táctiles y multijugador P2P.</p><div class="chips"><span>5 rivales IA</span><span>D-pad táctil</span><span>WebRTC</span><span>Gamepad</span></div><a class="play" href="games/generate-racer/">Jugar</a></div></article>
+  </section>
+  <div class="foot">Ambos proyectos conservan su licencia MIT dentro de cada carpeta. Los juegos anteriores ya no forman parte del laboratorio.</div>
+</main></body></html>
