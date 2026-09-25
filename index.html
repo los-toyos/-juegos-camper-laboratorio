@@ -3,85 +3,127 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#06111e">
-<title>Juegos Camper — iPhone</title>
+<meta name="theme-color" content="#050816">
+<title>Juegos Camper — selección moderna</title>
 <style>
-:root{--bg:#06111e;--bg2:#0b1c34;--card:#102a4a;--line:rgba(133,186,255,.23);--text:#f7fbff;--muted:#aac4e7;--blue:#55b8ff;--green:#64dfb3;--pink:#ff6f9c;--yellow:#ffd166}
-*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:radial-gradient(circle at 15% 0,rgba(85,184,255,.22),transparent 28%),linear-gradient(180deg,var(--bg2),var(--bg));color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-main{width:min(920px,100%);margin:auto;padding:20px 14px 50px}
-.kicker{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:#8ed9ff;font-weight:800}
-h1{font-size:clamp(28px,7vw,46px);line-height:1;margin:7px 0 10px}
-.hero p{margin:0;color:var(--muted);line-height:1.45;max-width:720px}
-.notice{margin:16px 0 18px;padding:13px 14px;border-radius:16px;border:1px solid var(--line);background:rgba(6,17,30,.67);color:var(--muted);font-size:14px}
+:root{
+  --bg:#050816;--bg2:#0a1024;--panel:#0e1830;--panel2:#101e3b;
+  --text:#f7fbff;--muted:#a9b8d7;--line:rgba(150,190,255,.17);
+  --cyan:#55ddff;--violet:#8b5cf6;--pink:#ff4f9a;--green:#62e6a6;--yellow:#ffd166;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:
+radial-gradient(circle at 16% -5%,rgba(85,221,255,.18),transparent 25%),
+radial-gradient(circle at 88% 0%,rgba(139,92,246,.22),transparent 27%),
+linear-gradient(180deg,var(--bg2),var(--bg));color:var(--text);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+body{min-height:100vh}
+main{width:min(980px,100%);margin:auto;padding:22px 15px 52px}
+.hero{padding:4px 2px 20px}
+.kicker{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:900;color:#8de7ff}
+h1{font-size:clamp(30px,7vw,50px);line-height:.98;margin:8px 0 12px}
+.hero p{max-width:720px;color:var(--muted);line-height:1.5;margin:0}
+.notice{margin:15px 0 19px;padding:13px 14px;border-radius:17px;border:1px solid var(--line);background:rgba(8,16,34,.72);color:var(--muted);font-size:14px;line-height:1.45}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.card{overflow:hidden;border:1px solid var(--line);border-radius:24px;background:linear-gradient(160deg,rgba(21,52,90,.96),rgba(8,21,39,.98));box-shadow:0 20px 45px rgba(0,0,0,.3)}
-.visual{height:120px;display:flex;align-items:center;justify-content:center;font-size:64px;text-shadow:0 12px 24px rgba(0,0,0,.35)}
-.racer .visual{background:linear-gradient(180deg,#25124f,#d73f87)}
-.shooter .visual{background:linear-gradient(180deg,#170b22,#8b1515)}
-.runner .visual{background:linear-gradient(135deg,#2a0d4d,#ff006e)}
-.pulse .visual{background:linear-gradient(135deg,#1a0f2e,#00a878)}
-.arcade .visual{background:linear-gradient(135deg,#140027,#17632d)}
-.snake .visual{background:linear-gradient(135deg,#0a3520,#3ac972)}
-.body{padding:15px 16px 16px}.top{display:flex;justify-content:space-between;gap:9px;align-items:flex-start}.card h2{font-size:20px;margin:0}.badge{white-space:nowrap;font-size:11px;font-weight:800;padding:6px 8px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.07);color:#caffea}
-.card p{margin:9px 0 11px;color:var(--muted);font-size:14px;line-height:1.4;min-height:58px}
-.control{display:block;padding:10px 12px;margin:0 0 12px;border-radius:13px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.07);font-size:13px;color:#e9f3ff}
-.play{display:flex;justify-content:center;align-items:center;text-decoration:none;color:#fff;font-weight:850;min-height:48px;border-radius:15px;background:linear-gradient(180deg,#49afff,#2174d0);box-shadow:0 10px 22px rgba(33,116,208,.25)}
-.footer{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;line-height:1.5;color:var(--muted)}
-.footer strong{color:#fff}
-@media(max-width:680px){.grid{grid-template-columns:1fr}.card p{min-height:0}}
+.card{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:26px;
+background:linear-gradient(160deg,rgba(18,36,70,.98),rgba(7,16,32,.98));
+box-shadow:0 22px 52px rgba(0,0,0,.34)}
+.visual{height:150px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.visual::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 22%,rgba(255,255,255,.18),transparent 32%)}
+.icon{position:relative;z-index:1;font-size:74px;filter:drop-shadow(0 15px 18px rgba(0,0,0,.4))}
+.vitalis .visual{background:linear-gradient(135deg,#071520,#103d35 52%,#1a7257)}
+.star .visual{background:radial-gradient(circle at 70% 35%,#8d2df3 0 3%,transparent 4%),linear-gradient(135deg,#07031b,#151050 56%,#47166c)}
+.neon .visual{background:linear-gradient(180deg,#140526 0 60%,#2b0d4f 61%);border-bottom:1px solid rgba(255,79,154,.4)}
+.treads .visual{background:linear-gradient(180deg,#08101a,#182638 60%,#473e27)}
+.slaps .visual{background:linear-gradient(135deg,#271136,#7d214d 54%,#dd5b6e)}
+.drop .visual{background:linear-gradient(135deg,#101934,#223775 56%,#ffb24b)}
+.body{padding:16px}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.card h2{font-size:21px;margin:0}
+.badge{font-size:11px;font-weight:900;padding:6px 9px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.07);white-space:nowrap;color:#d9e7ff}
+.badge.two{color:#ffe8ad}.badge.mobile{color:#c9ffe4}
+.card p{color:var(--muted);font-size:14px;line-height:1.45;margin:9px 0 12px}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:13px}
+.meta span{font-size:12px;padding:7px 9px;border-radius:999px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.06);color:#dbe8fb}
+.play{display:flex;align-items:center;justify-content:center;min-height:50px;border-radius:16px;text-decoration:none;color:white;font-weight:900;background:linear-gradient(180deg,#43c7ff,#3478df);box-shadow:0 12px 25px rgba(52,120,223,.24)}
+.play.pink{background:linear-gradient(180deg,#ff6cad,#cf3a85)} .play.green{background:linear-gradient(180deg,#56dca4,#218c66)}
+.footer{margin-top:21px;padding:15px 2px 0;border-top:1px solid var(--line);font-size:13px;color:var(--muted);line-height:1.5}
+@media(max-width:700px){.grid{grid-template-columns:1fr}.visual{height:135px}}
 </style>
 </head>
 <body>
 <main>
 <section class="hero">
-<div class="kicker">Camper Los Toyos · laboratorio táctil</div>
-<h1>🎮 Juegos para iPhone</h1>
-<p>He quitado los enlaces externos que daban problemas. Estos juegos están alojados ahora dentro de nuestro propio GitHub Pages y he seleccionado únicamente versiones con control táctil explícito.</p>
+  <div class="kicker">Camper Los Toyos · laboratorio</div>
+  <h1>🎮 Selección moderna</h1>
+  <p>He retirado los juegos retro anteriores. Esta versión se centra en títulos pensados para móvil, con controles táctiles y una presentación más actual.</p>
 </section>
 
-<div class="notice"><strong style="color:#fff">Cómo probar:</strong> entra en un juego y usa directamente los controles que indico debajo. Todos incluyen un botón flotante <b>‹ Juegos Camper</b> para volver a esta pantalla.</div>
+<div class="notice"><strong style="color:#fff">Fase de prueba:</strong> estos juegos se abren en su versión original publicada por sus autores. Si alguno te convence de verdad, el siguiente paso será traer ese proyecto al repositorio de Camper y adaptarlo a nuestra interfaz, idioma y modo offline.</div>
 
 <section class="grid">
-<article class="card racer">
-<div class="visual">🏎️</div><div class="body"><div class="top"><h2>Pixel Racer</h2><span class="badge">Táctil ✓</span></div>
-<p>Carreras verticales estilo pixel-art con tráfico, puntuación y dificultad progresiva.</p>
-<span class="control"><b>Control:</b> toca la mitad izquierda o derecha de la pantalla para girar. Toca para empezar/reiniciar.</span>
-<a class="play" href="games/pixel-racer/">Jugar</a></div></article>
+  <article class="card vitalis">
+    <div class="visual"><div class="icon">⚔️</div></div>
+    <div class="body">
+      <div class="top"><h2>Vitalis Arena</h2><span class="badge mobile">Móvil</span></div>
+      <p>Supervivencia tipo roguelike con personajes, equipo, jefes, progresión y una interfaz mucho más cercana a un juego móvil actual.</p>
+      <div class="meta"><span>Joystick virtual</span><span>Disparo</span><span>Habilidad especial</span><span>PWA</span></div>
+      <a class="play green" href="https://ericcancode.github.io/vitalis-arena/" target="_blank" rel="noopener">Jugar</a>
+    </div>
+  </article>
 
-<article class="card shooter">
-<div class="visual">👾</div><div class="body"><div class="top"><h2>Arcade Fever</h2><span class="badge">Botones táctiles ✓</span></div>
-<p>Arcade de acción con controles móviles añadidos por el juego y botón de disparo independiente.</p>
-<span class="control"><b>Control:</b> cruceta táctil en pantalla + botón de disparo.</span>
-<a class="play" href="games/arcade-fever/">Jugar</a></div></article>
+  <article class="card star">
+    <div class="visual"><div class="icon">🚀</div></div>
+    <div class="body">
+      <div class="top"><h2>Star Void</h2><span class="badge mobile">Vertical</span></div>
+      <p>Shooter espacial vertical con estética neón, movimiento táctil y una presentación mucho más moderna que los arcades que probamos antes.</p>
+      <div class="meta"><span>1 jugador</span><span>Retrato</span><span>Acción</span></div>
+      <a class="play" href="https://200lire.pages.dev/#/play/star-void" target="_blank" rel="noopener">Jugar</a>
+    </div>
+  </article>
 
-<article class="card runner">
-<div class="visual">🌈</div><div class="body"><div class="top"><h2>Spectrum Runner</h2><span class="badge">1 toque ✓</span></div>
-<p>Runner neón de reacción rápida, diseñado para jugar con un único gesto.</p>
-<span class="control"><b>Control:</b> toca la pantalla para saltar.</span>
-<a class="play" href="games/spectrum-runner/">Jugar</a></div></article>
+  <article class="card neon">
+    <div class="visual"><div class="icon">🌆</div></div>
+    <div class="body">
+      <div class="top"><h2>Neon Dash</h2><span class="badge mobile">Vertical</span></div>
+      <p>Runner con estética synthwave y controles simples para móvil. Está pensado para partidas rápidas con una presentación actual.</p>
+      <div class="meta"><span>Correr</span><span>Saltar</span><span>Deslizar</span></div>
+      <a class="play pink" href="https://200lire.pages.dev/#/play/neon-dash" target="_blank" rel="noopener">Jugar</a>
+    </div>
+  </article>
 
-<article class="card pulse">
-<div class="visual">💚</div><div class="body"><div class="top"><h2>Pulse Beat</h2><span class="badge">Táctil ✓</span></div>
-<p>Juego de ritmo/reacción con estética neón. El propio lienzo responde a pulsaciones.</p>
-<span class="control"><b>Control:</b> toca directamente los objetivos que aparecen en la pantalla.</span>
-<a class="play" href="games/pulse-beat/">Jugar</a></div></article>
+  <article class="card treads">
+    <div class="visual"><div class="icon">🛡️</div></div>
+    <div class="body">
+      <div class="top"><h2>Night Treads</h2><span class="badge mobile">Móvil</span></div>
+      <p>Combate de tanque contra zombis, de noche, con interfaz y efectos más próximos a un juego casual actual.</p>
+      <div class="meta"><span>Tanque</span><span>Zombis</span><span>Acción</span></div>
+      <a class="play" href="https://200lire.pages.dev/#/play/night-treads" target="_blank" rel="noopener">Jugar</a>
+    </div>
+  </article>
 
-<article class="card arcade">
-<div class="visual">🕹️</div><div class="body"><div class="top"><h2>Arcade Classic</h2><span class="badge">Botones táctiles ✓</span></div>
-<p>Arcade clásico con interfaz retro y controles móviles visibles.</p>
-<span class="control"><b>Control:</b> cruceta táctil + botón de acción/disparo.</span>
-<a class="play" href="games/arcade-classic/">Jugar</a></div></article>
+  <article class="card slaps">
+    <div class="visual"><div class="icon">🃏</div></div>
+    <div class="body">
+      <div class="top"><h2>Slaps</h2><span class="badge two">2 jugadores</span></div>
+      <p>Juego de cartas diseñado expresamente para dos personas alrededor del mismo móvil, con pantalla invertida para cada jugador, sonido y vibración.</p>
+      <div class="meta"><span>Mismo iPhone</span><span>2 jugadores</span><span>Haptics</span></div>
+      <a class="play pink" href="https://wsamuelw.github.io/slaps/" target="_blank" rel="noopener">Jugar</a>
+    </div>
+  </article>
 
-<article class="card snake">
-<div class="visual">🐍</div><div class="body"><div class="top"><h2>Snake Mobile</h2><span class="badge">D-pad ✓</span></div>
-<p>Versión orientada a móvil con gráficos incrustados y botones direccionales en pantalla.</p>
-<span class="control"><b>Control:</b> botones ▲ ▼ ◀ ▶ visibles en el propio juego.</span>
-<a class="play" href="games/snake-mobile/">Jugar</a></div></article>
+  <article class="card drop">
+    <div class="visual"><div class="icon">🟠</div></div>
+    <div class="body">
+      <div class="top"><h2>Drop Stack</h2><span class="badge mobile">Táctil</span></div>
+      <p>Puzzle físico de soltar y fusionar piezas, pensado para pantalla vertical y partidas tranquilas en el móvil.</p>
+      <div class="meta"><span>Puzzle</span><span>Física</span><span>Vertical</span></div>
+      <a class="play" href="https://200lire.pages.dev/#/play/drop-stack" target="_blank" rel="noopener">Jugar</a>
+    </div>
+  </article>
 </section>
 
-<div class="footer">
-<strong>Licencias conservadas:</strong> Pixel Racer y los juegos derivados de 90s-games están bajo MIT; Classic Snake está bajo GPL-3.0. Las copias de las licencias están guardadas en la carpeta <code>licenses/</code> del repositorio.
-</div>
+<div class="footer">Los prototipos y juegos retro anteriores se han retirado del repositorio. Esta pantalla queda únicamente como banco de pruebas para decidir qué juegos merece la pena integrar de verdad en Camper Los Toyos.</div>
 </main>
 </body>
 </html>
