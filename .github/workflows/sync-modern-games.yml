@@ -1,0 +1,168 @@
+name: Sync modern games
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/sync-modern-games.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout laboratory
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Build and install modern games
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          rm -rf games
+          mkdir -p games
+
+          echo "== GenerateRacer =="
+          git clone --depth 1 https://github.com/commjoen/generatedracer.git /tmp/generatedracer
+          mkdir -p games/generate-racer
+          cp /tmp/generatedracer/index.html games/generate-racer/index.html
+          cp /tmp/generatedracer/game.css games/generate-racer/game.css
+          cp /tmp/generatedracer/LICENSE games/generate-racer/LICENSE
+          cp -R /tmp/generatedracer/js games/generate-racer/js
+
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path("games/generate-racer/index.html")
+          s = p.read_text()
+          nav = """<style id="camper-lab-nav">
+          .camper-lab-back{position:fixed;z-index:2147483647;top:max(10px,env(safe-area-inset-top));left:10px;text-decoration:none;color:#fff;background:rgba(4,10,20,.78);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(10px);padding:10px 13px;border-radius:999px;font:700 13px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+          </style>"""
+          s = s.replace("</head>", nav + "</head>")
+          s = s.replace("<body>", '<body><a class="camper-lab-back" href="../../">‹ Juegos Camper</a>', 1)
+          p.write_text(s)
+          PY
+
+          echo "== Neon Space Defender 3D =="
+          git clone --depth 1 https://github.com/rsamwilson2323-cloud/NEON-SPACE-DEFENDER-3D.git /tmp/neon-space
+          cd /tmp/neon-space
+          npm ci
+
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          p = Path("src/routes/index.tsx")
+          s = p.read_text()
+          s = s.replace('import { createFileRoute } from "@tanstack/react-router";\n', '')
+          s = re.sub(
+              r'export const Route = createFileRoute\("/"\)\(\{.*?\n\}\);\n\n',
+              '',
+              s,
+              count=1,
+              flags=re.S,
+          )
+          s = s.replace("function Game() {", "export function Game() {", 1)
+          p.write_text(s)
+
+          Path("src/client-main.tsx").write_text("""import React from "react";
+          import { createRoot } from "react-dom/client";
+          import "./styles.css";
+          import { Game } from "./routes/index";
+
+          createRoot(document.getElementById("root")!).render(
+            <React.StrictMode><Game /></React.StrictMode>
+          );
+          """)
+
+          Path("index.html").write_text("""<!doctype html>
+          <html lang="en">
+          <head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no" />
+            <meta name="theme-color" content="#020617" />
+            <title>Neon Space Defender 3D</title>
+          </head>
+          <body>
+            <a class="camper-lab-back" href="../../">‹ Juegos Camper</a>
+            <div id="root"></div>
+            <script type="module" src="/src/client-main.tsx"></script>
+          </body>
+          </html>
+          """)
+
+          Path("vite.static.config.ts").write_text("""import { defineConfig } from "vite";
+          import react from "@vitejs/plugin-react";
+          import tailwindcss from "@tailwindcss/vite";
+          import path from "node:path";
+
+          export default defineConfig({
+            plugins: [react(), tailwindcss()],
+            resolve: { alias: { "@": path.resolve(__dirname, "src") } },
+            base: "./",
+            build: { outDir: "dist", emptyOutDir: true }
+          });
+          """)
+
+          with Path("src/styles.css").open("a") as f:
+              f.write("""
+          .camper-lab-back{
+            position:fixed;z-index:2147483647;top:max(10px,env(safe-area-inset-top));left:10px;
+            text-decoration:none;color:#fff;background:rgba(4,10,20,.76);
+            border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(10px);
+            padding:10px 13px;border-radius:999px;font:700 13px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+            box-shadow:0 8px 24px rgba(0,0,0,.35)
+          }
+          """)
+          PY
+
+          npx vite build --config vite.static.config.ts
+          cd "$GITHUB_WORKSPACE"
+          mkdir -p games/neon-space-defender
+          cp -R /tmp/neon-space/dist/. games/neon-space-defender/
+          cp /tmp/neon-space/LICENSE games/neon-space-defender/LICENSE
+
+          cat > index.html <<'HTML'
+          <!doctype html>
+          <html lang="es">
+          <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+          <meta name="theme-color" content="#040714">
+          <title>Juegos Camper — 3D</title>
+          <style>
+          :root{--bg:#040714;--panel:#0a1228;--text:#f7fbff;--muted:#aab9d7;--line:rgba(143,194,255,.2)}
+          *{box-sizing:border-box}html,body{margin:0;min-height:100%;background:radial-gradient(circle at 18% 0,rgba(28,214,255,.18),transparent 27%),radial-gradient(circle at 87% 0,rgba(151,65,255,.21),transparent 28%),linear-gradient(180deg,#0b1127,var(--bg));color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+          main{width:min(920px,100%);margin:auto;padding:22px 15px 50px}.k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8eeaff;font-weight:900}h1{font-size:clamp(31px,8vw,52px);line-height:1;margin:8px 0 11px}.lead{margin:0 0 20px;color:var(--muted);line-height:1.45}
+          .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.card{overflow:hidden;border:1px solid var(--line);border-radius:28px;background:linear-gradient(160deg,rgba(17,33,67,.98),rgba(6,14,31,.98));box-shadow:0 24px 55px rgba(0,0,0,.35)}.art{height:210px;display:flex;align-items:center;justify-content:center;font-size:92px;position:relative}.space .art{background:radial-gradient(circle at 70% 30%,#7828ff 0 2%,transparent 3%),radial-gradient(circle at 32% 28%,#00d7ff 0 1.6%,transparent 2.4%),linear-gradient(135deg,#020518,#10135c 55%,#3a105d)}.race .art{background:linear-gradient(180deg,#4fbef2 0 48%,#4b8a3e 49% 58%,#30323a 59% 100%)}.body{padding:17px}.head{display:flex;justify-content:space-between;gap:8px}.body h2{font-size:22px;margin:0}.badge{font-size:11px;font-weight:900;padding:6px 9px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.07);white-space:nowrap}.body p{color:var(--muted);font-size:14px;line-height:1.45;margin:10px 0 13px}.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}.chips span{font-size:12px;padding:7px 9px;border-radius:999px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.06)}.play{display:flex;align-items:center;justify-content:center;min-height:52px;border-radius:16px;text-decoration:none;color:#fff;font-weight:900;background:linear-gradient(180deg,#47cdfc,#3476df)}.race .play{background:linear-gradient(180deg,#5ed779,#25874a)}.foot{margin-top:20px;color:var(--muted);font-size:13px;line-height:1.45;border-top:1px solid var(--line);padding-top:15px}@media(max-width:700px){.grid{grid-template-columns:1fr}.art{height:175px}}
+          </style>
+          </head>
+          <body><main>
+            <div class="k">Camper Los Toyos · laboratorio 3D</div>
+            <h1>🎮 Juegos con más nivel gráfico</h1>
+            <p class="lead">He eliminado el resto. El laboratorio queda únicamente con dos juegos 3D completos, alojados dentro de nuestro propio GitHub Pages y con controles táctiles para móvil.</p>
+            <section class="grid">
+              <article class="card space"><div class="art">🚀</div><div class="body"><div class="head"><h2>Neon Space Defender 3D</h2><span class="badge">3D · WebGL</span></div><p>Shooter espacial 3D con iluminación neón, oleadas, jefes, partículas, láseres, misiles, escudo, energía y efectos de cámara.</p><div class="chips"><span>Joystick táctil</span><span>Disparo</span><span>Misiles</span><span>Jefes</span></div><a class="play" href="games/neon-space-defender/">Jugar</a></div></article>
+              <article class="card race"><div class="art">🏎️</div><div class="body"><div class="head"><h2>GenerateRacer</h2><span class="badge">Carreras</span></div><p>Carreras de kart contra cinco rivales con IA, tres vueltas, posiciones en tiempo real, controles táctiles y multijugador P2P.</p><div class="chips"><span>5 rivales IA</span><span>D-pad táctil</span><span>WebRTC</span><span>Gamepad</span></div><a class="play" href="games/generate-racer/">Jugar</a></div></article>
+            </section>
+            <div class="foot">Ambos proyectos conservan su licencia MIT dentro de cada carpeta. Los juegos anteriores ya no forman parte del laboratorio.</div>
+          </main></body></html>
+          HTML
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Instalar Neon Space Defender 3D y GenerateRacer"
+            git push
+          fi
